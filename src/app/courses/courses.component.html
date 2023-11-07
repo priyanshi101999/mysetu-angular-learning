@@ -1,0 +1,15 @@
+<h2>{{courses.name | uppercase }}</h2>
+<div><span>id: </span>{{ courses.id}}</div>
+<div><label>
+  name: <input [(ngModel)] = " courses.name" placeholder="Name"> </label></div>
+
+
+<ul class="teach">
+  <li *ngFor = "let course of  teach"
+  [class.selected] = "course === selectedCourse" (click)="onSelect(course)">
+<span>{{course.id}}</span>
+{{course.name}}
+</li>
+</ul>
+
+<app-course-detail [course]= "selectedCourse"></app-course-detail>
